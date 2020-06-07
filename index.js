@@ -1,5 +1,6 @@
 const commandLineArgs = require('command-line-args');
 const player = require('./lib/player');
+const listen = require('./lib/listen');
 
 const optionDefinitions = [
   { name: 'mode', alias: 'm', type: String },
@@ -18,6 +19,8 @@ const opts = commandLineArgs(optionDefinitions);
     console.log(opts)
     if (!opts.simulate) {
       await player.init(opts);
+
+      listen(player);
     }
     else {
       let playState = await player.getNext({
