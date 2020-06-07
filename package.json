@@ -8,6 +8,7 @@
     "escape-string-regexp": "^4.0.0",
     "fs-extra": "^9.0.0",
     "lodash": "^4.17.15",
-    "mp3-duration": "^1.1.0"
+    "mp3-duration": "^1.1.0",
+    "node-id3": "^0.1.17"
   }
 }
