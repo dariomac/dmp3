@@ -1,6 +1,7 @@
 const commandLineArgs = require('command-line-args');
 const player = require('./lib/player');
 const listen = require('./lib/listen');
+const { Song, PlayState } = require('./lib/domain');
 
 const optionDefinitions = [
   { name: 'mode', alias: 'm', type: String },
@@ -15,23 +16,20 @@ const opts = commandLineArgs(optionDefinitions);
     console.log('You must specify at least one path');
   }
   else {
-
-    console.log(opts)
     if (!opts.simulate) {
       await player.init(opts);
 
       listen(player);
     }
     else {
-      let playState = await player.getNext({
-        playing: opts.src
-      });
+      let playState = PlayState(Song(opts.src));
+      await player.getNext(playState);
 
-      console.log(`Play this song: ${playState.playing}`);
-      console.log(`Next song: ${playState.next}\n`);
+      console.log(`Play this song: ${playState.playing.path}`);
+      console.log(`Next song: ${playState.next.path}\n`);
       
       const i = setInterval(async function(){
-        playState.playing = playState.next;
+        playState.playing.path = playState.next.path;
         playState = await player.getNext(playState);
         
         if (!playState) {
@@ -40,10 +38,10 @@ const opts = commandLineArgs(optionDefinitions);
           return;
         }
 
-        console.log(`Play this song: ${playState.playing}`);
-        console.log(`Next song: ${playState.next}\n`);
+        console.log(`Play this song: ${playState.playing.path}`);
+        console.log(`Next song: ${playState.next.path}\n`);
 
-        if (!playState.next) {
+        if (!playState.next.path) {
           console.log('END PLAYING');
           clearInterval(i);
           return;
