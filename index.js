@@ -22,19 +22,20 @@ const opts = commandLineArgs(optionDefinitions);
       process.stdout.write(`\n`);
 
       await player.init(opts);
-
       listen(player);
+
+      await player.play();
     }
     else {
       let playState = PlayState(Song(opts.src));
-      playState = await player.getNext(playState);
+      playState = await player.setState(playState);
 
       await meta.set(playState.playing);
-      printer.printSong(opts, playState);
+      printer.printSong(playState);
       
       const i = setInterval(async function(){
-        playState.playing.path = playState.next.path;
-        playState = await player.getNext(playState);
+        playState.playing = playState.next;
+        playState = await player.setState(playState);
         
         if (!playState) {
           console.log('END PLAYING');
@@ -43,7 +44,7 @@ const opts = commandLineArgs(optionDefinitions);
         }
 
         await meta.set(playState.playing);
-        printer.printSong(opts, playState);
+        printer.printSong(playState);
 
         if (!playState.next.path) {
           console.log('END PLAYING');
