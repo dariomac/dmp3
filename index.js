@@ -2,6 +2,7 @@ const commandLineArgs = require('command-line-args');
 const player = require('./lib/player');
 const listen = require('./lib/listen');
 const printer = require('./lib/cmd_line_printer');
+const meta = require('./lib/metadata');
 const { Song, PlayState } = require('./lib/domain');
 
 const optionDefinitions = [
@@ -18,6 +19,8 @@ const opts = commandLineArgs(optionDefinitions);
   }
   else {
     if (!opts.simulate) {
+      process.stdout.write(`\n`);
+
       await player.init(opts);
 
       listen(player);
@@ -26,8 +29,8 @@ const opts = commandLineArgs(optionDefinitions);
       let playState = PlayState(Song(opts.src));
       playState = await player.getNext(playState);
 
-      playState.playing.duration = '02:42';
-      printer.print(opts, playState);
+      await meta.set(playState.playing);
+      printer.printSong(opts, playState);
       
       const i = setInterval(async function(){
         playState.playing.path = playState.next.path;
@@ -39,15 +42,15 @@ const opts = commandLineArgs(optionDefinitions);
           return;
         }
 
-        playState.playing.duration = '02:42';
-        printer.print(opts, playState);
+        await meta.set(playState.playing);
+        printer.printSong(opts, playState);
 
         if (!playState.next.path) {
           console.log('END PLAYING');
           clearInterval(i);
           return;
         }
-      }, 250);
+      }, 1000);
     }
   }
 })().catch(e => {
