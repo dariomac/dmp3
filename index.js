@@ -8,7 +8,7 @@ const { Song, PlayState } = require('./lib/domain');
 const optionDefinitions = [
   { name: 'mode', alias: 'm', type: String },
   { name: 'src', type: String, multiple: false, defaultOption: true },
-  { name: 'simulate', alias: 's', type: Boolean },
+  { name: 'simulate', alias: 's', type: Boolean }
 ];
 
 const opts = commandLineArgs(optionDefinitions);
@@ -28,10 +28,12 @@ const opts = commandLineArgs(optionDefinitions);
     }
     else {
       let playState = PlayState(Song(opts.src));
+      playState.mode = opts.mode;
       playState = await player.setState(playState);
 
-      await meta.set(playState.playing);
+      await meta.setDuration(playState.playing);
       printer.printSong(playState);
+      await meta.setTags(playState.playing);
       
       const i = setInterval(async function(){
         playState.playing = playState.next;
@@ -43,8 +45,9 @@ const opts = commandLineArgs(optionDefinitions);
           return;
         }
 
-        await meta.set(playState.playing);
+        await meta.setDuration(playState.playing);
         printer.printSong(playState);
+        await meta.setTags(playState.playing);
 
         if (!playState.next.path) {
           console.log('END PLAYING');
