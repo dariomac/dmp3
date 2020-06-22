@@ -24,7 +24,7 @@ const opts = commandLineArgs(optionDefinitions);
       process.stdout.write(`\n`);
 
       await player.init(opts);
-      listen(player);
+      await listen(player);
 
       await player.play();
     }
