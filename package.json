@@ -9,6 +9,7 @@
     "command-line-args": "^5.1.1",
     "escape-string-regexp": "^4.0.0",
     "fs-extra": "^9.0.0",
+    "genius-lyrics-api": "^3.0.0",
     "lodash": "^4.17.15",
     "log-update": "^4.0.0",
     "music-metadata": "^6.4.0",
