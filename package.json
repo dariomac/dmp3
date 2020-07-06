@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "show-mem": "ps aux | head -1 && ps aux -h | egrep '[i]ndex.js|[m]pg123'"
+  },
   "dependencies": {
     "chalk": "^4.0.0",
     "cli-columns": "^3.1.2",
