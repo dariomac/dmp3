@@ -17,20 +17,23 @@ const opts = commandLineArgs(optionDefinitions);
 (async () => {
   if (! opts.src) {
     console.log('You must specify at least one path');
+    return;
   }
-  else {
-    if (opts.simulate) {
-      await simulate(opts);
-      return;
-    }
 
-    process.stdout.write(`\n`);
+  if (opts.simulate) {
+    await simulate(opts);
+    return;
+  }
 
-    await player.init(opts);
-    await listen(player);
+  process.stdout.write(`\n`);
 
+  await player.init(opts);
+  await listen(player);
+
+  setTimeout(async () => {
     await player.play();
-  }
+  }, 500);
+
 })().catch(e => {
   console.log(e)
   // Deal with the fact the chain failed
