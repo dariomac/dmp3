@@ -16,7 +16,7 @@ const opts = commandLineArgs(optionDefinitions);
 
 (async () => {
   if (! opts.src) {
-    console.log('You must specify at least one path');
+    printer.printErr('You must specify at least one path');
     return;
   }
 
