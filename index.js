@@ -35,6 +35,7 @@ const opts = commandLineArgs(optionDefinitions);
   }, 500);
 
 })().catch(e => {
-  console.log(e)
+  printer.printErr(e);
+  process.exit();
   // Deal with the fact the chain failed
 });
