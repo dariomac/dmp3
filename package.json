@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "show-mem": "ps aux | head -1 && ps aux -h | egrep '[i]ndex.js|[m]pg123'"
+    "show-mem": "ps aux | head -1 && ps aux -h | egrep '[d]mp3|[m]pv'"
+  },
+  "bin": {
+    "dmp3": "cli.js"
   },
   "dependencies": {
     "chalk": "^4.0.0",

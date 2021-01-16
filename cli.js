@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const commandLineArgs = require('command-line-args');
 const player = require('./lib/player');
 const listen = require('./lib/listen');
