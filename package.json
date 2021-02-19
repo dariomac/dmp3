@@ -25,6 +25,7 @@
     "music-metadata": "^6.4.0",
     "node-fetch": "^2.6.0",
     "node-mpv": "^2.0.0-beta.1",
+    "radix-tree": "^0.3.4",
     "urlencode": "^1.1.0"
   }
 }
