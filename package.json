@@ -17,7 +17,6 @@
     "clipboardy": "^2.3.0",
     "command-line-args": "^5.1.1",
     "encoding": "^0.1.12",
-    "escape-string-regexp": "^4.0.0",
     "fs-extra": "^9.0.0",
     "genius-lyrics-api": "^3.0.0",
     "lodash": "^4.17.15",
@@ -26,6 +25,7 @@
     "node-fetch": "^2.6.0",
     "node-mpv": "^2.0.0-beta.1",
     "radix-tree": "^0.3.4",
+    "random-org": "^2.2.0",
     "urlencode": "^1.1.0"
   }
 }
