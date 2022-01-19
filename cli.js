@@ -1,10 +1,10 @@
 #!/usr/bin/env node
+import commandLineArgs from 'command-line-args';
 
-const commandLineArgs = require('command-line-args');
-const player = require('./lib/player');
-const listen = require('./lib/listen');
-const printer = require('./lib/printer');
-const simulate = require('./lib/simulate');
+import player from './lib/player.js';
+import listen from './lib/listen.js';
+import printer from './lib/printer.js';
+import simulate from './lib/simulate.js';
 
 printer.printClear();
 
@@ -35,7 +35,12 @@ printer.setLogLevel(opts.loglevel);
   await listen(player);
 
   setTimeout(async () => {
-    await player.play();
+    try {
+      await player.play();
+    } catch (e) {
+      printer.printErr(e);
+      process.exit();
+    }
   }, 500);
 
 })().catch(e => {

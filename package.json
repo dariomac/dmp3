@@ -9,6 +9,7 @@
   "bin": {
     "dmp3": "cli.js"
   },
+  "type": "module",
   "dependencies": {
     "beepbeep": "^1.3.0",
     "better-logging": "^4.6.0",
