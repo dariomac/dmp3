@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "show-mem": "ps aux | head -1 && ps aux -h | egrep '[d]mp3|[m]pv'"
+    "show-mem": "ps aux | head -1 && ps aux -h | egrep '[d]mp3|[m]pv'",
+    "global-install": "npm i -g"
   },
   "bin": {
     "dmp3": "cli.js"

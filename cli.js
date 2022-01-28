@@ -8,6 +8,8 @@ import simulate from './lib/simulate.js';
 
 printer.printClear();
 
+printer.printMsg('version: 1.0.1\n');
+
 const optionDefinitions = [
   { name: 'mode', alias: 'm', type: String },
   { name: 'src', type: String, multiple: false, defaultOption: true },
