@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "show-mem": "ps aux | head -1 && ps aux -h | egrep '[d]mp3|[m]pv'",
-    "global-install": "npm i -g"
+    "global-install": "npm i -g",
+    "dev": "node cli.js"
   },
   "bin": {
     "dmp3": "cli.js"
@@ -23,6 +24,7 @@
     "genius-lyrics-api": "^3.2.0",
     "lodash": "^4.17.21",
     "log-update": "^5.0.0",
+    "mixpanel": "^0.17.0",
     "music-metadata": "^7.11.7",
     "node-fetch": "^3.1.1",
     "node-mpv": "^2.0.0-beta.1",
