@@ -7,7 +7,6 @@ import printer from './lib/printer.js';
 import simulate from './lib/simulate.js';
 
 printer.printClear();
-
 printer.printMsg('version: 1.0.2\n');
 
 const optionDefinitions = [
@@ -23,12 +22,12 @@ printer.setLogLevel(opts.loglevel);
 (async () => {
   if (! opts.src) {
     printer.printErr('You must specify at least one path');
-    return;
+    process.exit(1);
   }
 
   if (opts.simulate) {
     await simulate(opts);
-    return;
+    process.exit(0);
   }
 
   process.stdout.write(`\n`);
@@ -41,12 +40,12 @@ printer.setLogLevel(opts.loglevel);
       await player.play();
     } catch (e) {
       printer.printErr(e);
-      process.exit();
+      process.exit(1);
     }
   }, 500);
 
 })().catch(e => {
   printer.printErr(e);
-  process.exit();
+  process.exit(1);
   // Deal with the fact the chain failed
 });
