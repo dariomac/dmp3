@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import commandLineArgs from 'command-line-args';
 
-import player from './lib/player.js';
-import listen from './lib/listen.js';
+import { player } from './lib/player.js';
+import { keyboardListener } from './lib/keyboardListener.js';
 import printer from './lib/printer.js';
 import simulate from './lib/simulate.js';
 
@@ -33,7 +33,7 @@ printer.setLogLevel(opts.loglevel);
   process.stdout.write(`\n`);
 
   await player.init(opts);
-  await listen(player);
+  await keyboardListener.init(player);
 
   setTimeout(async () => {
     try {
