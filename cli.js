@@ -30,7 +30,7 @@ printer.setLogLevel(opts.loglevel);
     process.exit(0);
   }
 
-  process.stdout.write(`\n`);
+  printer.printMsg('\n');
 
   await player.init(opts);
   await keyboardListener.init(player);
