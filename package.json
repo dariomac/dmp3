@@ -8,6 +8,9 @@
     "global-install": "npm i -g",
     "dev": "node cli.js"
   },
+  "engines": {
+    "node": ">=23"
+  },
   "bin": {
     "dmp3": "cli.js"
   },
@@ -27,9 +30,13 @@
     "mixpanel": "^0.18.0",
     "music-metadata": "^10.5.1",
     "node-fetch": "^3.3.2",
-    "node-mpv": "^2.0.0-beta.1",
+    "node-mpv": "git@github.com:dariomac/node-mpv.git",
     "radix-tree": "^0.3.4",
     "random-org": "^2.2.0",
-    "urlencode": "^2.0.0"
+    "urlencode": "^2.0.0",
+    "@hapi/hapi": "^21.3.12",
+    "@hapi/inert": "^7.1.0",
+    "@dropb/ffprobe": "^3.0.0",
+    "throttle": "^1.0.3"
   }
 }
