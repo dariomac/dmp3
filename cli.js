@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import commandLineArgs from 'command-line-args';
 
-import * as player from './lib/player.js';
+import { player } from './lib/player.js';
 import { keyboardListener } from './lib/keyboard-listener.js';
 import { printer } from './lib/printer.js';
 import simulate from './lib/simulate.js';
