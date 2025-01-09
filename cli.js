@@ -3,7 +3,7 @@ import commandLineArgs from 'command-line-args';
 
 import * as player from './lib/player.js';
 import { keyboardListener } from './lib/keyboardListener.js';
-import * as printer from './lib/printer.js';
+import { printer } from './lib/printer.js';
 import simulate from './lib/simulate.js';
 
 const opts = commandLineArgs([
