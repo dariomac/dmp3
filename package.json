@@ -25,7 +25,7 @@
     "encoding": "^0.1.13",
     "fs-extra": "^11.2.0",
     "genius-lyrics-api": "^3.2.1",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "log-update": "^6.1.0",
     "mixpanel": "^0.18.0",
     "music-metadata": "^10.6.5",
