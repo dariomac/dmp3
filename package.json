@@ -32,7 +32,6 @@
     "node-fetch": "^3.3.2",
     "node-mpv": "git@github.com:dariomac/node-mpv.git",
     "radix-tree": "^0.3.4",
-    "random-org": "^2.2.0",
     "urlencode": "^2.0.0"
   }
 }
