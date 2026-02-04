@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "show-mem": "ps aux | head -1 && ps aux -h | egrep '[d]mp3|[m]pv'",
+    "show-mem": "while true; do echo \"===== $(date '+%Y-%m-%d %H:%M:%S') =====\"; ps aux | head -1 && ps aux -h | egrep '[d]mp3|[av]player'; sleep 20; done",
     "global-install": "npm i -g",
     "dev": "node cli.js",
     "build": "cd lib/os-players/avplayer-native && ./build.sh",
