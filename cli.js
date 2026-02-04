@@ -16,7 +16,7 @@ const opts = commandLineArgs([
 (async () => {
   printer.setLogLevel(opts.loglevel);
   printer.printClear();
-  printer.printMsg('version: 1.2.2\n\n');
+  printer.printMsg('version: 1.2.3\n\n');
 
   if (!opts.src) {
     printer.printErr('You must specify at least one path');
