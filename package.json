@@ -30,7 +30,7 @@
     "lodash": "^4.17.21",
     "log-update": "^6.1.0",
     "mixpanel": "^0.18.0",
-    "music-metadata": "^10.6.5",
+    "music-metadata": "^11.12.1",
     "node-fetch": "^3.3.2",
     "radix-tree": "^0.3.4",
     "urlencode": "^2.0.0"
