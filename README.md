@@ -37,7 +37,7 @@ dmp3 [options] <music-directory-or-file>
 ### Command Line Options
 
 - **`<src>`** - Path to music directory or file (required)
-- **`--mode, -m <mode>`** - Playback mode (e.g., "random" for shuffle)
+- **`--mode, -m <mode>`** - Playback mode: "random" for shuffle, "randir" to pick a random folder (at any nesting level) and play its songs in order, or omit for sorted playback
 - **`--simulate, -s`** - Simulation mode (shows what would play without actually playing)
 - **`--loglevel, -l <level>`** - Log level (number, default: -1)
 
@@ -49,6 +49,9 @@ dmp3 ~/Music
 
 # Play in shuffle mode
 dmp3 --mode random ~/Music
+
+# Pick a random folder (any nesting level) and play its songs in order
+dmp3 --mode randir ~/Music
 
 # Simulate playback (dry run)
 dmp3 --simulate ~/Music
@@ -108,6 +111,7 @@ dmp3 uses a sophisticated shuffle system designed for optimal randomness:
 - **Directory Navigation**: Randomly traverses subdirectories to discover new music
 - **Playback Tracking**: Remembers played songs to avoid immediate repetition
 - **Hierarchical Shuffle**: Handles nested directory structures intelligently
+- **Random Folder Mode (`randir`)**: Picks a random folder from anywhere in the directory tree, plays all its songs in order, then picks another random (not-yet-played) folder, and so on until every folder has been played
 
 ### Buffering System
 
@@ -157,4 +161,4 @@ MIT
 
 ---
 
-**Enjoy your music with dmp3!** <µ
+**Enjoy your music with dmp3!** <ï¿½
